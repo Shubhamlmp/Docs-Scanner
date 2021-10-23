@@ -56,3 +56,7 @@ cv2.drawContours(image, [screenCnt], -1, (0, 255, 0), 2)
 cv2.imshow("Outline", image)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
+
+# apply the four point transform to obtain a top-down
+# view of the original image
+warped = four_point_transform(orig, screenCnt.reshape(4, 2) * ratio)
